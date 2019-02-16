@@ -1,0 +1,10 @@
+{
+    "development": {
+      "username": "root",
+      "password": "b!1ppy0EPF10",
+      "database": "puckstopper_db",
+      "host": "localhost",
+      "port": 3306,
+      "dialect": "mysql"
+    }
+}
