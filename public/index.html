@@ -36,7 +36,7 @@
                     <form>
                         <div class="row">
                             <div class="col-5">
-                                <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+                                <input type="text" class="form-control" id="loginEmail" aria-describedby="emailHelp"
                                     placeholder="Enter email">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                     anyone
@@ -70,20 +70,19 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <input type="email" class="form-control" id="regEmail" aria-describedby="emailHelp"
+                                <input type="text" class="form-control" id="regEmail" aria-describedby="emailHelp"
                                     placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your information with
                                     anyone
                                     else.</small>
                             </div>
                             <div class="col-6">
                                     <input type="text" class="form-control" id="regPhone"
                                         placeholder="Enter Cell#">
-                                    <small class="form-text text-muted">Or your cell #.</small>
                                 </div>
                         </div>
                         <div class="row">
-                            <div class="col-12" id='invalidPW'>
+                            <div class="col-11 d-none text-center bg-warning text-dark border border-danger" id='invalidPW'>
                                 <h6>Passwords do not match.</h6>
                             </div>
                             <div class="col-6">
@@ -96,20 +95,24 @@
                         <div class="row">
                             <div class="col-6">
                                     <div class="form-group">
-                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <select class="form-control" id="teamSelect">
                                                     <option value selected disabled>Choose your team</option>
                                             </select>
                                           </div>
                             </div>
                             <div class="col-6">
-                                    <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="isGolie">
-                                            <label class="form-check-label" for="isGoalie">
-                                              I am a goalie
-                                            </label>
+                                    <div class="form-group">
+                                            <select class="form-control" id="isGoalie">
+                                                    <option value selected disabled>Are you a goalie?</option>
+                                                    <option value="true">Yes</option>
+                                                    <option value="false">No</option>
+                                            </select>
                                           </div>
                             </div>
                         </div>
+                        <div class="d-none text-center bg-warning text-dark border border-danger" id="invalid">
+                                <p>All fields must be filled in to register</p>
+                            </div>
                         <button type="submit" class="btn btn-primary" id="regButton">Register</button>
                     </form>
                 </section>

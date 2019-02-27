@@ -13,5 +13,9 @@ module.exports = function(connection, dataType) {
           team.belongsTo(models.level);
       };
 
+      team.associate = function(models) {
+          team.hasMany(models.user);
+      };
+
     return team;
 };

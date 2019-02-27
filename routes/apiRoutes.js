@@ -37,4 +37,13 @@ module.exports = function (app) {
             res.json({ error: error });
         });
     });
+
+    //Create User
+    app.post('/api/user', function (req, res) {
+        db.user.create(req.body).then(function (data) {
+            res.json(data)
+        }).catch(function (error) {
+            res.json({ error: error });
+        });
+    })
 }
