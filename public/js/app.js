@@ -30,7 +30,18 @@ $(document).ready(function () {
         }
     });
 
-    //Validation for password / all fields
+    //Validation for Login
+    const validateLogin = function () {
+        let valid = true
+        const name = $('#loginEmail').val();
+        const pass = $('#loginPW').val();
+        if (!name || !pass) {
+            valid = false;
+        };
+        return valid
+    }
+
+    //Validation for registration
     const validate = function () {
         const PW1 = $('#regPW').val();
         const PW2 = $('#confirmPW').val();
@@ -67,13 +78,11 @@ $(document).ready(function () {
                     isGoalie: goal,
                     teamId: team
                 };
-                console.log(team);
                 $.ajax({
                     url: '/api/user',
                     method: 'POST',
                     data: newUser
                 }).then(function() {
-                    console.log('I think it worked');
                 });
             } else {
                 $('#invalidPW').addClass('d-block');
@@ -83,11 +92,31 @@ $(document).ready(function () {
         };
     };
 
+    //Login
+    const logIn = function (e) {
+        e.preventDefault();
+        const valid = validateLogin();
+        if (valid) {
+            const email = $('#loginEmail').val();
+            const password = $('#loginPW').val();
+            const login = {
+                email: email,
+                password: password
+            }
+            $.post('/api/login', login).then(function(res) {
+                console.log(res);
+                sessionStorage.setItem('authorization', res.token);
+                window.location.href = "/myschedule";
+            })
+        }
+    }
+
     showLogin();
 
     $('#loginLink').on('click', showLogin);
     $('#regLink').on('click', showRegister);
 
     $('#regButton').on('click', createUser);
+    $('#loginButton').on('click', logIn);
 
 });

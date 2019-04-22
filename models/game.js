@@ -8,7 +8,7 @@ module.exports = function (connection, dataType) {
     });
 
     game.associate = function (models) {
-        game.belongsTo(models.location, {
+        game.hasOne(models.location, {
         });
     };
 
